@@ -1,0 +1,20 @@
+dist: bionic
+
+git:
+  depth: 5
+
+language: minimal
+
+services:
+  - docker
+
+matrix:
+  include:
+    - env:
+        - task=hadolint
+      script:
+        - docker run --rm -i hadolint/hadolint < Dockerfile
+    - env:
+        - task=Docker build
+      script:
+        - docker build -t ipinfo.tw:$TRAVIS_COMMIT .
