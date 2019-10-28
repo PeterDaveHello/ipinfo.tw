@@ -46,6 +46,7 @@ You can specify the following URI to retrieve certain info:
 - `as`: AS number and description
 - `asn`: AS number
 - `as_desc`: AS description
+- `user_agent`: User agent string
 
 Examples:
 
@@ -79,6 +80,9 @@ AS15169
 
 $ curl -Lo- https://ipinfo.tw/as_desc
 Google LLC
+
+$ wget -qO- https://ipinfo.tw/user_agent
+Wget
 ```
 
 ## License
