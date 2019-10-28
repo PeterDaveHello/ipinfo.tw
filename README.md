@@ -82,7 +82,7 @@ $ curl -Lo- https://ipinfo.tw/as
 AS8075 / Microsoft Corporation
 
 $ curl -Lo- https://ipinfo.tw/asn
-AS15169
+15169
 
 $ curl -Lo- https://ipinfo.tw/as_desc
 Google LLC
