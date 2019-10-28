@@ -37,7 +37,13 @@ Use any http(s) client to explore the server, e.g. https://ipinfo.tw,
 
 Without any specified URI, the server will return IP address, country, AS, and user agent.
 
-You can specify the following URI to retrieve certain info:
+If you prefer to receive a machine-readable result, use path `/json`, e.g. `https://ipinfo.tw/json`, the result will look like:
+
+```json
+{"ip":"3.115.123.234","country_code":"JP","country_name":"Japan","asn":"16509","as_desc":"Amazon.com, Inc.","user_agent":"curl/7.58.0"}
+```
+
+You can also specify the following URI to retrieve certain info:
 
 - `ip`: IP address
 - `country`: Country code and name
