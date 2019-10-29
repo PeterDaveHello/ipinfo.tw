@@ -33,7 +33,7 @@ If you want to put this container behind reverse proxy, set up an `X-Real-IP` he
 Use any http(s) client to explore the server, e.g. https://ipinfo.tw,
 
 - `wget -qO- https://ipinfo.tw`
-- `curl -Lo- https://ipinfo.tw`
+- `curl https://ipinfo.tw`
 
 Without any specified URI, the server will return IP address, country, AS, and user agent.
 
@@ -63,28 +63,28 @@ SG / Singapore
 AS14061 / DigitalOcean, LLC
 Wget/1.17.1 (linux-gnu)
 
-$ curl -Lo- https://ipinfo.tw/ip
+$ curl https://ipinfo.tw/ip
 18.179.200.1
 
-$ curl -Lo- https://ipinfo.tw/country
+$ curl https://ipinfo.tw/country
 TW / Taiwan
 
-$ curl -Lo- https://ipinfo.tw/country_code
+$ curl https://ipinfo.tw/country_code
 HK
 
-$ curl -Lo- https://ipinfo.tw/country_name
+$ curl https://ipinfo.tw/country_name
 South Korea
 
-$ curl -Lo- https://ipinfo.tw/as
+$ curl https://ipinfo.tw/as
 AS16509 / Amazon.com, Inc.
 
-$ curl -Lo- https://ipinfo.tw/as
+$ curl https://ipinfo.tw/as
 AS8075 / Microsoft Corporation
 
-$ curl -Lo- https://ipinfo.tw/asn
+$ curl https://ipinfo.tw/asn
 15169
 
-$ curl -Lo- https://ipinfo.tw/as_desc
+$ curl https://ipinfo.tw/as_desc
 Google LLC
 
 $ wget -qO- https://ipinfo.tw/user_agent
