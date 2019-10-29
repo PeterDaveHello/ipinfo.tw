@@ -91,6 +91,8 @@ $ wget -qO- https://ipinfo.tw/user_agent
 Wget
 ```
 
+As mentioned above, if `https://` is not specified, connection will be redirected from http to https, in this case, `curl` will need an additional parameter: `-L`/`--location` to follow location redirection.
+
 ## License
 
 This project is released under the GPL-3.0 license. It uses GeoLite2 data created by [MaxMind][3].
