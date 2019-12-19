@@ -1,4 +1,4 @@
-FROM alpine:3.10 as prepare
+FROM alpine:3.11 as prepare
 
 RUN mkdir /GeoLite2/
 WORKDIR /GeoLite2/
@@ -17,7 +17,7 @@ RUN printf '  GeoLite2-Country.tar.gz' >> GeoLite2-Country.tar.gz.md5
 RUN md5sum -c GeoLite2-Country.tar.gz.md5
 RUN tar xvf GeoLite2-Country.tar.gz --strip 1
 
-FROM alpine:3.10 as release
+FROM alpine:3.11 as release
 LABEL name="ipinfo.tw"
 RUN mkdir -p /run/nginx/ /usr/share/GeoIP/
 COPY --from=prepare /GeoLite2/*.mmdb /usr/share/GeoIP/
