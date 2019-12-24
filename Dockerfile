@@ -30,7 +30,7 @@ COPY ipinfo.conf /etc/nginx/conf.d/default.conf
 
 RUN nginx -t 1>&2
 
-HEALTHCHECK --timeout=10s --start-period=15s CMD wget -O /dev/null http://127.0.0.1 || exit 1
+HEALTHCHECK --timeout=10s --start-period=5s CMD wget -O /dev/null http://127.0.0.1 || exit 1
 
 EXPOSE 80
 
