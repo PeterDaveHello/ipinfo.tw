@@ -15,7 +15,7 @@ matrix:
       script:
         - docker run --rm -i hadolint/hadolint < Dockerfile
     - env:
-        - task=Docker build
+        - task="Docker build"
       if: branch == master && (type != pull_request)
       script:
         - docker build --build-arg MAXMIND_LICENSE_KEY="$MAXMIND_LICENSE_KEY" -t ipinfo.tw:$TRAVIS_COMMIT .
