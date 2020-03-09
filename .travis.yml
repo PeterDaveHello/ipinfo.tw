@@ -20,4 +20,5 @@ matrix:
       script:
         - docker build --build-arg MAXMIND_LICENSE_KEY="$MAXMIND_LICENSE_KEY" -t ipinfo.tw:$TRAVIS_COMMIT .
       after_success:
+        - docker system prune -f
         - docker images
