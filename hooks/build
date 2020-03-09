@@ -1,0 +1,3 @@
+#!/bin/sh
+
+docker build --build-arg MAXMIND_LICENSE_KEY="$MAXMIND_LICENSE_KEY" -f "$DOCKERFILE_PATH" -t "$IMAGE_NAME" .
