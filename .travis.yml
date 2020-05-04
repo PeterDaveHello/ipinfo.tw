@@ -12,11 +12,15 @@ matrix:
   include:
     - env:
         - task=gixy
+      before_script:
+        - docker pull yandex/gixy
       script:
         - docker run --rm -v $PWD:/ipinfo yandex/gixy /ipinfo/nginx.conf
         - docker run --rm -v $PWD:/ipinfo yandex/gixy /ipinfo/ipinfo.conf
     - env:
         - task=hadolint
+      before_script:
+        - docker pull hadolint/hadolint
       script:
         - docker run --rm -i hadolint/hadolint < Dockerfile
     - env:
