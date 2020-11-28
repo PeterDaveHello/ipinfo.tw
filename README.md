@@ -93,6 +93,16 @@ Wget
 
 As mentioned above, if `https://` is not specified, connection will be redirected from http to https, in this case, `curl` will need an additional parameter: `-L`/`--location` to follow location redirection.
 
+## Build
+
+If you want to build your own image, instead of directly pull the pre-built one, clone this repository, and run `docker build` command, with build-arg `MAXMIND_LICENSE_KEY`, you need to provide your own MaxMind license key from https://www.maxmind.com/en/account, it's **free**.
+
+```sh
+$ git clone --depth 1 https://github.com/PeterDaveHello/ipinfo.tw
+$ cd ipinfo.tw
+$ docker build --build-arg MAXMIND_LICENSE_KEY="$MY_MAXMIND_KEY" -t ipinfo.tw:custom-build .
+```
+
 ## License
 
 This project is released under the GPL-3.0 license. It uses GeoLite2 data created by [MaxMind][3].
