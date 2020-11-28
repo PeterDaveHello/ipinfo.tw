@@ -1,0 +1,11 @@
+spec:
+  name: ipinfo.tw
+  services:
+    - dockerfile_path: Dockerfile
+      name: web
+      git:
+        branch: DigitalOceanAppPlatform
+        repo_clone_url: https://github.com/PeterDaveHello/ipinfo.tw
+      http_port: 80
+      instance_count: 1
+      instance_size_slug: basic-xxs
