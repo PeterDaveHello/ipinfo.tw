@@ -28,8 +28,8 @@ COPY --from=prepare /GeoLite2/*.mmdb /usr/share/GeoIP/
 RUN apk add --no-cache nginx nginx-mod-http-geoip2 \
  && rm -f /etc/nginx/conf.d/default.conf
 
-COPY nginx.conf  /etc/nginx/
-COPY ipinfo.conf /etc/nginx/conf.d/
+COPY nginx/nginx.conf         /etc/nginx/
+COPY nginx/conf.d/ipinfo.conf /etc/nginx/conf.d/
 
 # GoogleContainerTools/kaniko#1278 workaround
 RUN test -e /var/run || ln -s /run /var/run
