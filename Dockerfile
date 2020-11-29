@@ -25,10 +25,11 @@ RUN mkdir -p /run/nginx/ /usr/share/GeoIP/
 COPY --from=prepare /GeoLite2/*.mmdb /usr/share/GeoIP/
 
 # hadolint ignore=DL3018
-RUN apk add --no-cache nginx nginx-mod-http-geoip2
+RUN apk add --no-cache nginx nginx-mod-http-geoip2 \
+ && rm -f /etc/nginx/conf.d/default.conf
 
 COPY nginx.conf  /etc/nginx/
-COPY ipinfo.conf /etc/nginx/conf.d/default.conf
+COPY ipinfo.conf /etc/nginx/conf.d/
 
 # GoogleContainerTools/kaniko#1278 workaround
 RUN test -e /var/run || ln -s /run /var/run
