@@ -10,6 +10,16 @@
 
 A self-hosted, non-tracking, and ad-free solution to reveal client-side IP info like IP address, conuntry, [AS][1] number/description, and additionally, [user agent][2].
 
+## Table of Contents
+
+- [Demo](#demo)
+- [Usage](#usage)
+  - [Deploy to DigitalOcean](#deploy-to-digitalocean)
+  - [Server side](#server-side)
+  - [Client side](#client-side)
+- [Build](#build)
+- [License](#license)
+
 ## Demo
 
 This project is also hosted publicly on https://ipinfo.tw, feel free to give it a try!
