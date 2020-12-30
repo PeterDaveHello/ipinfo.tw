@@ -18,6 +18,14 @@ Please note that for privacy concerns, this demo is behind an reverse proxy with
 
 ## Usage
 
+### Deploy to DigitalOcean
+
+You can now directly deploy ipinfo.tw project on **DigitalOcean App Platform** using the deploy button:
+
+[![Deploy to DO](https://mp-assets1.sfo2.digitaloceanspaces.com/deploy-to-do/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/PeterDaveHello/ipinfo.tw/tree/DigitalOceanAppPlatform&refcode=1fdd0a1d695a)
+
+On DigitalOcean App Platform, we use the HTTP header `DO-Connecting-IP` as client's IP address, for more technical details, check the [DigitalOceanAppPlatform branch](https://github.com/PeterDaveHello/ipinfo.tw/tree/DigitalOceanAppPlatform).
+
 ### Server side
 
 Run the server daemon via docker:
