@@ -123,8 +123,9 @@ $ docker build --build-arg MAXMIND_LICENSE_KEY="$MY_MAXMIND_KEY" -t ipinfo.tw:cu
 
 ## License
 
-This project is released under the GPL-3.0 license. It uses GeoLite2 data created by [MaxMind][3].
+This project is released under the GPL-3.0 license. It uses [GeoLite2][4] data created by [MaxMind][3].
 
 [1]:https://en.wikipedia.org/wiki/Autonomous_system_(Internet)
 [2]:https://en.wikipedia.org/wiki/User_agent
 [3]:https://www.maxmind.com
+[4]:https://dev.maxmind.com/geoip/geoip2/geolite2/
