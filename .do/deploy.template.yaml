@@ -1,5 +1,5 @@
 spec:
-  name: ipinfo.tw
+  name: ipinfo-tw
   services:
     - dockerfile_path: Dockerfile
       name: web
