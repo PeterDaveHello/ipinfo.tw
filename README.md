@@ -8,7 +8,7 @@
 
 [![Docker Hub badge](http://dockeri.co/image/peterdavehello/ipinfo.tw)](https://hub.docker.com/r/peterdavehello/ipinfo.tw/)
 
-A self-hosted, non-tracking, and ad-free solution to reveal client-side IP info like IP address, conuntry, [AS][1] number/description, and additionally, [user agent][2].
+A self-hosted, non-tracking, and ad-free solution to reveal client-side IP info like IP address, country, [AS][1] number/description, and additionally, [user agent][2].
 
 ## Table of Contents
 
