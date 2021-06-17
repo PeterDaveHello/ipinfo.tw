@@ -1,0 +1,5 @@
+---
+
+ignored:
+  - DL3047 # This is actually an invalid rule on Alpine Linux or Busybox based wget
+  - DL3059 # Separate layers is better for cache leverage, especially for debug, and for not final stage image
