@@ -21,7 +21,7 @@ matrix:
       before_script:
         - docker pull hadolint/hadolint
       script:
-        - docker run --rm -i hadolint/hadolint < Dockerfile
+        - docker run --rm -i -v $PWD/.hadolint.yml:/.hadolint.yml hadolint/hadolint < Dockerfile
     - env:
         - task="Docker build"
       if: branch == master && (type != pull_request)
