@@ -24,7 +24,7 @@ A self-hosted, non-tracking, and ad-free solution to reveal client-side IP info 
 
 This project is also hosted publicly on https://ipinfo.tw, feel free to give it a try!
 
-Please note that for response integrity and privacy concerns, this demo is behind an reverse proxy with https enabled, which is not part of this project. http traffic will be redirected to use https to establish the connection, in case the plaintext data being snifferred/intercepted.
+Please note that for response integrity and privacy concerns, this demo is behind an reverse proxy with https enabled, which is not part of this project. http traffic will be redirected to use https to establish the connection, in case the plaintext data being sniffed/intercepted.
 
 ## Usage
 
