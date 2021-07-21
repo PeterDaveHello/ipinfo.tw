@@ -41,7 +41,7 @@ On DigitalOcean App Platform, we use the HTTP header `DO-Connecting-IP` as clien
 Run the server daemon via docker:
 
 ```sh
-docker run -d --name ipinfo.tw -p 80:80 peterdavehello/ipinfo.tw:latest
+docker run -d --name ipinfo.tw -p 80:8080 peterdavehello/ipinfo.tw:latest
 ```
 
 If you want to put this container behind reverse proxy, set up an `X-Real-IP` header and pass the it to the container, so that it can use the header as the IP of the client.

@@ -34,10 +34,12 @@ COPY nginx/conf.d/*           /etc/nginx/conf.d/
 # GoogleContainerTools/kaniko#1278 workaround
 RUN test -e /var/run || ln -s /run /var/run
 
+USER nginx
+
 RUN nginx -t 1>&2
 
-HEALTHCHECK --timeout=10s --start-period=5s CMD wget -O /dev/null http://127.0.0.1 || exit 1
+HEALTHCHECK --timeout=10s --start-period=5s CMD wget -O /dev/null http://127.0.0.1:8080 || exit 1
 
-EXPOSE 80
+EXPOSE 8080
 
 ENTRYPOINT [ "/usr/sbin/nginx", "-g", "daemon off;" ]
