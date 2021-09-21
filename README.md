@@ -3,8 +3,6 @@
 ![license](https://img.shields.io/badge/license-GPLv3.0-brightgreen.svg?style=flat)
 [![Build Status](https://travis-ci.com/PeterDaveHello/ipinfo.tw.svg?branch=master)](https://travis-ci.com/PeterDaveHello/ipinfo.tw)
 [![Docker Hub pulls](https://img.shields.io/docker/pulls/peterdavehello/ipinfo.tw.svg)](https://hub.docker.com/r/peterdavehello/ipinfo.tw/)
-[![Docker image layers](https://images.microbadger.com/badges/image/peterdavehello/ipinfo.tw.svg)](https://microbadger.com/images/peterdavehello/ipinfo.tw/)
-[![Docker image version](https://images.microbadger.com/badges/version/peterdavehello/ipinfo.tw.svg)](https://hub.docker.com/r/peterdavehello/ipinfo.tw/tags/)
 
 [![Docker Hub badge](http://dockeri.co/image/peterdavehello/ipinfo.tw)](https://hub.docker.com/r/peterdavehello/ipinfo.tw/)
 
