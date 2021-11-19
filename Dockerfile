@@ -1,4 +1,4 @@
-FROM alpine:3.14 as prepare
+FROM alpine:3.15 as prepare
 
 ARG MAXMIND_LICENSE_KEY
 
@@ -19,7 +19,7 @@ RUN sed 's/GeoLite2-Country_[0-9]*.tar.gz/GeoLite2-Country.tar.gz/g' -i GeoLite2
 RUN sha256sum -c GeoLite2-Country.tar.gz.sha256
 RUN tar xvf GeoLite2-Country.tar.gz --strip 1
 
-FROM alpine:3.14 as release
+FROM alpine:3.15 as release
 LABEL name="ipinfo.tw"
 RUN mkdir -p /run/nginx/ /usr/share/GeoIP/
 COPY --from=prepare /GeoLite2/*.mmdb /usr/share/GeoIP/
