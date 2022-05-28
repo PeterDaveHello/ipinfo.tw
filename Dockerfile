@@ -1,4 +1,4 @@
-FROM alpine:3.15 as prepare
+FROM alpine:3.16 as prepare
 
 ARG MAXMIND_LICENSE_KEY
 
