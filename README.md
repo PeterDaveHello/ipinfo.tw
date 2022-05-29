@@ -1,7 +1,7 @@
 # ipinfo.tw
 
 ![license](https://img.shields.io/badge/license-GPLv3.0-brightgreen.svg?style=flat)
-[![Build Status](https://travis-ci.com/PeterDaveHello/ipinfo.tw.svg?branch=master)](https://travis-ci.com/PeterDaveHello/ipinfo.tw)
+[![Build Status](https://app.travis-ci.com/PeterDaveHello/ipinfo.tw.svg?branch=master)](https://app.travis-ci.com/PeterDaveHello/ipinfo.tw)
 [![Docker Hub pulls](https://img.shields.io/docker/pulls/peterdavehello/ipinfo.tw.svg)](https://hub.docker.com/r/peterdavehello/ipinfo.tw/)
 
 [![Docker Hub badge](http://dockeri.co/image/peterdavehello/ipinfo.tw)](https://hub.docker.com/r/peterdavehello/ipinfo.tw/)
