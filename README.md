@@ -15,6 +15,7 @@ A self-hosted, non-tracking, and ad-free solution to reveal client-side IP info 
   - [Deploy to DigitalOcean](#deploy-to-digitalocean)
   - [Server side](#server-side)
   - [Client side](#client-side)
+    - [Endpoints](#endpoints)
 - [Build](#build)
 - [License](#license)
 
@@ -58,6 +59,8 @@ If you prefer to receive a machine-readable result, use path `/json` (without tr
 ```json
 {"ip":"3.115.123.234","country_code":"JP","country_name":"Japan","asn":"16509","as_desc":"Amazon.com, Inc.","user_agent":"curl/7.58.0"}
 ```
+
+#### Endpoints
 
 You can also specify the following URI to retrieve certain info:
 
@@ -107,7 +110,7 @@ $ wget -qO- https://ipinfo.tw/user_agent
 Wget
 ```
 
-As mentioned above, if `https://` is not specified, connection will be redirected from http to https, in this case, `curl` will need an additional parameter: `-L`/`--location` to follow location redirection.
+As mentioned above, on the demo domain - `ipinfo.tw`, if `https://` is not specified in the URL, connection will be redirected from http to https, in this case, `curl` will need an additional parameter: `-L`/`--location` to follow location redirection.
 
 ## Build
 
