@@ -16,6 +16,7 @@ A self-hosted, non-tracking, and ad-free solution to reveal client-side IP info 
   - [Server side](#server-side)
   - [Client side](#client-side)
     - [Endpoints](#endpoints)
+      - [Database build time endpoint](#database-build-time-endpoint)
 - [Build](#build)
 - [License](#license)
 
@@ -108,6 +109,16 @@ Google LLC
 
 $ wget -qO- https://ipinfo.tw/user_agent
 Wget
+```
+
+##### Database build time endpoint
+
+There is a special endpoint - `/build_epoch`, which will return a json object that contains two unsigned 64-bit integers of the database build timestamp as the Unix epoch value.
+
+The response of `/build_epoch` will be look like:
+
+```json
+{"GeoLite2-Country":"1655395486","GeoLite2-ASN":"1655730848"}
 ```
 
 As mentioned above, on the demo domain - `ipinfo.tw`, if `https://` is not specified in the URL, connection will be redirected from http to https, in this case, `curl` will need an additional parameter: `-L`/`--location` to follow location redirection.
