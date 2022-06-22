@@ -18,6 +18,7 @@ A self-hosted, non-tracking, and ad-free solution to reveal client-side IP info 
     - [Endpoints](#endpoints)
       - [Database build time endpoint](#database-build-time-endpoint)
 - [Build](#build)
+- [Credits](#credits)
 - [License](#license)
 
 ## Demo
@@ -133,11 +134,25 @@ $ cd ipinfo.tw
 $ docker build --build-arg MAXMIND_LICENSE_KEY="$MY_MAXMIND_KEY" -t ipinfo.tw:custom-build .
 ```
 
+## Credits
+
+This project uses works from projects below, and fully appreciates contributors behind these projects:
+
+- [Alpine Linux][5]
+- [nginx][6]
+- [nginx GeoIP2 module][7]
+- [GeoLite2][4] (by [MaxMind][3])
+- [Docker][8]
+
 ## License
 
-This project is released under the GPL-3.0 license. It uses [GeoLite2][4] data created by [MaxMind][3].
+This project is released under the GPL-3.0 license.
 
 [1]:https://en.wikipedia.org/wiki/Autonomous_system_(Internet)
 [2]:https://en.wikipedia.org/wiki/User_agent
 [3]:https://www.maxmind.com
 [4]:https://dev.maxmind.com/geoip/geoip2/geolite2/
+[5]:https://alpinelinux.org/
+[6]:https://nginx.org/
+[7]:https://github.com/leev/ngx_http_geoip2_module
+[8]:https://www.docker.com/
