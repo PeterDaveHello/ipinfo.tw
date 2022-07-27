@@ -2,7 +2,7 @@
 version: "2"
 
 services:
-  tor-socks-proxy:
+  ipinfo.tw:
     container_name: ipinfo.tw
     image: peterdavehello/ipinfo.tw:latest
     ports:
