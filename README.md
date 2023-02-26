@@ -144,6 +144,14 @@ This project uses works from projects below, and fully appreciates contributors 
 - [GeoLite2][4] (by [MaxMind][3])
 - [Docker][8]
 
+## Sponsor
+
+<a href="https://m.do.co/c/1fdd0a1d695a"><img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/SVG/DO_Logo_horizontal_blue.svg" width="201px"></a>
+
+This project is now sponsored by DigitalOcean with the hosting since Feb 2023.
+
+If you're looking for cloud VPS hosting, you can use my DigitalOcean referral link to get $200 credit: https://m.do.co/c/1fdd0a1d695a
+
 ## License
 
 This project is released under the GPL-3.0 license.
