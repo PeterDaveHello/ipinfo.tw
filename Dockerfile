@@ -13,11 +13,11 @@ RUN sed 's/GeoLite2-ASN_[0-9]*.tar.gz/GeoLite2-ASN.tar.gz/g' -i GeoLite2-ASN.tar
 RUN sha256sum -c GeoLite2-ASN.tar.gz.sha256
 RUN tar xvf GeoLite2-ASN.tar.gz --strip 1
 
-RUN wget "${MAXMIND_BASE_URL}edition_id=GeoLite2-Country&suffix=tar.gz" -O GeoLite2-Country.tar.gz
-RUN wget "${MAXMIND_BASE_URL}edition_id=GeoLite2-Country&suffix=tar.gz.sha256" -O GeoLite2-Country.tar.gz.sha256
-RUN sed 's/GeoLite2-Country_[0-9]*.tar.gz/GeoLite2-Country.tar.gz/g' -i GeoLite2-Country.tar.gz.sha256
-RUN sha256sum -c GeoLite2-Country.tar.gz.sha256
-RUN tar xvf GeoLite2-Country.tar.gz --strip 1
+RUN wget "${MAXMIND_BASE_URL}edition_id=GeoLite2-City&suffix=tar.gz" -O GeoLite2-City.tar.gz
+RUN wget "${MAXMIND_BASE_URL}edition_id=GeoLite2-City&suffix=tar.gz.sha256" -O GeoLite2-City.tar.gz.sha256
+RUN sed 's/GeoLite2-City_[0-9]*.tar.gz/GeoLite2-City.tar.gz/g' -i GeoLite2-City.tar.gz.sha256
+RUN sha256sum -c GeoLite2-City.tar.gz.sha256
+RUN tar xvf GeoLite2-City.tar.gz --strip 1
 
 FROM alpine:3.17 as release
 LABEL name="ipinfo.tw"
