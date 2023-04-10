@@ -59,13 +59,33 @@ Without any specified URI, the server will return IP address, country, AS, and u
 If you prefer to receive a machine-readable result, use path `/json` (without trailing slash), e.g. `https://ipinfo.tw/json`, the result will look like:
 
 ```json
-{"ip":"3.115.123.234","country_code":"JP","country_name":"Japan","asn":"16509","as_desc":"Amazon.com, Inc.","user_agent":"curl/7.58.0"}
+{
+  "ip": "3.115.123.234",
+  "country_code": "JP",
+  "country_name": "Japan",
+  "asn": "16509",
+  "as_desc": "AMAZON-02",
+  "latitude": "35.68930",
+  "longitude": "139.68990",
+  "accuracy_radius": "1000",
+  "time_zone": "Asia/Tokyo",
+  "user_agent":"curl/7.58.0"
+}
 ```
 
-You can also use this with the lookup functionality, e.g. `https://ipinfo.tw/lookup/3.115.123.234/json`, the result will look like:
-
+This will also work with ip lookup 
 ```json
-{"ip":"3.115.123.234","country_code":"JP","country_name":"Japan","asn":"16509","as_desc":"Amazon.com, Inc."}
+{
+  "ip": "3.115.123.234",
+  "country_code": "JP",
+  "country_name": "Japan",
+  "asn": "16509",
+  "as_desc": "AMAZON-02",
+  "latitude": "35.68930",
+  "longitude": "139.68990",
+  "accuracy_radius": "1000",
+  "time_zone": "Asia/Tokyo"
+}
 ```
 
 #### Endpoints
@@ -76,17 +96,27 @@ You can also specify the following URI to retrieve certain info:
 - `country`: Country code and name
 - `country_code`: Country code
 - `country_name`: Country name
+- `city_name`: City name
+- `geo`: Longitude & Latitude
+- `accuracy_radius`: Longitude & Latitude accuracy
+- `time_zone`: Timezone
 - `as`: AS number and description
 - `asn`: AS number
 - `as_desc`: AS description
 - `user_agent`: User agent string
-- `lookup/ip`: IP address
-- `lookup/country`: Country code and name
-- `lookup/country_code`: Country code
-- `lookup/country_name`: Country name
-- `lookup/as`: AS number and description
-- `lookup/asn`: AS number
-- `lookup/as_desc`: AS description
+
+You can also specify the following URI to retrieve certain info about an IP. Replace "{ip_address}" with the IPv4 or IPv6 you want to lookup.
+- `lookup/{ip_address}/ip`: IP address
+- `lookup/{ip_address}/country`: Country code and name
+- `lookup/{ip_address}/country_code`: Country code
+- `lookup/{ip_address}/country_name`: Country name
+- `lookup/{ip_address}/city_name`: City name
+- `lookup/{ip_address}/geo`: Longitude & Latitude
+- `lookup/{ip_address}/accuracy_radius`: Longitude & Latitude accuracy
+- `lookup/{ip_address}/time_zone`: Timezone
+- `lookup/{ip_address}/as`: AS number and description
+- `lookup/{ip_address}/asn`: AS number
+- `lookup/{ip_address}/as_desc`: AS description
 
 Examples:
 
@@ -161,8 +191,9 @@ There is a special endpoint - `/build_epoch`, which will return a json object th
 The response of `/build_epoch` will be look like:
 
 ```json
-{"GeoLite2-Country":"1655395486","GeoLite2-ASN":"1655730848"}
+{"GeoLite2-City":"1655395486","GeoLite2-ASN":"1655730848"}
 ```
+These are also included in the headers as `X-GeoLite2-City-Build` and `X-GeoLite2-ASN-Build`.
 
 As mentioned above, on the demo domain - `ipinfo.tw`, if `https://` is not specified in the URL, connection will be redirected from http to https, in this case, `curl` will need an additional parameter: `-L`/`--location` to follow location redirection.
 
