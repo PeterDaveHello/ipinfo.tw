@@ -75,6 +75,15 @@ You can also specify the following URI to retrieve certain info:
 - `as_desc`: AS description
 - `user_agent`: User agent string
 
+You can also specify the following URI to retrieve certain info about an IP. Replace "{ip_address}" with the IPv4 or IPv6 you want to lookup.
+- `lookup/{ip_address}/ip`: IP address
+- `lookup/{ip_address}/country`: Country code and name
+- `lookup/{ip_address}/country_code`: Country code
+- `lookup/{ip_address}/country_name`: Country name
+- `lookup/{ip_address}/as`: AS number and description
+- `lookup/{ip_address}/asn`: AS number
+- `lookup/{ip_address}/as_desc`: AS description
+
 Examples:
 
 ```sh
@@ -110,6 +119,35 @@ Google LLC
 
 $ wget -qO- https://ipinfo.tw/user_agent
 Wget
+
+$ wget -qO- https://ipinfo.tw/lookup/157.230.195.167
+157.230.195.167
+SG / Singapore
+AS14061 / DigitalOcean, LLC
+
+$ curl https://ipinfo.tw/lookup/18.179.200.1/ip
+18.179.200.1
+
+$ curl https://ipinfo.tw/lookup/18.179.200.1/country
+TW / Taiwan
+
+$ curl https://ipinfo.tw/lookup/18.179.200.1/country_code
+HK
+
+$ curl https://ipinfo.tw/lookup/18.179.200.1/country_name
+South Korea
+
+$ curl https://ipinfo.tw/lookup/18.179.200.1/as
+AS16509 / Amazon.com, Inc.
+
+$ curl https://ipinfo.tw/lookup/18.179.200.1/as
+AS8075 / Microsoft Corporation
+
+$ curl https://ipinfo.tw/lookup/18.179.200.1/asn
+15169
+
+$ curl https://ipinfo.tw/lookup/18.179.200.1/as_desc
+Google LLC
 ```
 
 ##### Database build time endpoint
