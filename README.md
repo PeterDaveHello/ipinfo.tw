@@ -19,6 +19,7 @@ A self-hosted, non-tracking, and ad-free solution to reveal client-side IP info 
       - [Database build time endpoint](#database-build-time-endpoint)
 - [Build](#build)
 - [Credits](#credits)
+- [Sponsor](#sponsor)
 - [License](#license)
 
 ## Demo
