@@ -26,7 +26,7 @@ A self-hosted, non-tracking, and ad-free solution to reveal client-side IP info 
 
 This project is also hosted publicly on https://ipinfo.tw, feel free to give it a try!
 
-Please note that for response integrity and privacy concerns, this demo is behind a reverse proxy with https enabled, which is not part of this project. HTTP traffic will be redirected to use https to establish the connection, in case the plaintext data being sniffed/intercepted.
+Please note that for response integrity and privacy concerns, this demo is behind an reverse proxy with https enabled, which is not part of this project. http traffic will be redirected to use https to establish the connection, in case the plaintext data being sniffed/intercepted.
 
 ## Usage
 
@@ -46,7 +46,7 @@ Run the server daemon via docker:
 docker run -d --name ipinfo.tw -p 80:8080 peterdavehello/ipinfo.tw:latest
 ```
 
-If you want to put this container behind reverse proxy, set up an `X-Real-IP` header and pass it to the container, so that it can use the header as the IP of the client.
+If you want to put this container behind reverse proxy, set up an `X-Real-IP` header and pass the it to the container, so that it can use the header as the IP of the client.
 
 ### Client side
 
