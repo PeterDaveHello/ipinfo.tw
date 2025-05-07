@@ -75,6 +75,7 @@ You can also specify the following URI to retrieve certain info:
 - `asn`: AS number
 - `as_desc`: AS description
 - `user_agent`: User agent string
+- `lookup`: Query information for a specific IP address (or client IP if not provided)
 
 Examples:
 
@@ -111,6 +112,11 @@ Google LLC
 
 $ wget -qO- https://ipinfo.tw/user_agent
 Wget
+
+$ curl https://ipinfo.tw/lookup?ip=1.1.1.1
+1.1.1.1
+AU / Australia
+AS13335 / CLOUDFLARENET
 ```
 
 ##### Database build time endpoint
