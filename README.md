@@ -135,6 +135,22 @@ $ cd ipinfo.tw
 $ docker build --build-arg MAXMIND_LICENSE_KEY="$MY_MAXMIND_KEY" -t ipinfo.tw:custom-build .
 ```
 
+Prefer `docker-compose`? Replace the existing `ipinfo.tw` service to build locally:
+
+```yaml
+services:
+  ipinfo.tw:
+    build:
+      context: .
+      args:
+        MAXMIND_LICENSE_KEY: ${MAXMIND_LICENSE_KEY}
+    image: ipinfo.tw:local
+    ports:
+      - "127.0.0.1:8080:8080"
+```
+
+Add `MAXMIND_LICENSE_KEY=your-license-key` to a local `.env` so `docker compose build` picks it up without leaving the secret in your shell history.
+
 ## Credits
 
 This project uses works from projects below, and fully appreciates contributors behind these projects:
