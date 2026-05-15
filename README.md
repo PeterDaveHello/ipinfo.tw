@@ -55,12 +55,12 @@ Use any http(s) client to explore the server, e.g. https://ipinfo.tw,
 - `wget -qO- https://ipinfo.tw`
 - `curl https://ipinfo.tw`
 
-Without any specified URI, the server will return IP address, country, AS, and user agent.
+Without any specified URI, the server will return IP address, country, timezone, AS, and user agent.
 
 If you prefer to receive a machine-readable result, use path `/json` (without trailing slash), e.g. `https://ipinfo.tw/json`, the result will look like:
 
 ```json
-{"ip":"3.115.123.234","country_code":"JP","country_name":"Japan","asn":"16509","as_desc":"Amazon.com, Inc.","user_agent":"curl/7.58.0"}
+{"ip":"3.115.123.234","country_code":"JP","country_name":"Japan","timezone":"Asia/Tokyo","asn":"16509","as_desc":"Amazon.com, Inc.","user_agent":"curl/7.58.0"}
 ```
 
 #### Endpoints
@@ -75,6 +75,7 @@ You can also specify the following URI to retrieve certain info:
 - `asn`: AS number
 - `as_desc`: AS description
 - `user_agent`: User agent string
+- `timezone`: Timezone based on the city (e.g Europe/Amsterdam)
 
 Examples:
 
@@ -96,6 +97,9 @@ HK
 
 $ curl https://ipinfo.tw/country_name
 South Korea
+
+$ curl https://ipinfo.tw/timezone
+Europe/Amsterdam
 
 $ curl https://ipinfo.tw/as
 AS16509 / Amazon.com, Inc.

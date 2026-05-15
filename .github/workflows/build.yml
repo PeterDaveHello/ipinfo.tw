@@ -1,0 +1,47 @@
+name: Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    name: Build & deploy
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 #v6.0.1
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef #v3.6.0
+        with:
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+          registry: cratecache.azurecr.io/new-black
+
+      # Switch to a different builder
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f #3.12.0
+
+      # Determine the run number
+      - name: Set the run number
+        id: commit-id
+        run: |
+          echo "build_number=$GITHUB_RUN_NUMBER" >> $GITHUB_ENV
+
+      # Build the production image
+      - name: Build production image
+        uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83 #v6.18.0
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: true
+          target: release
+          build-args: |
+            MAXMIND_LICENSE_KEY=${{ secrets.MAXMIND_LICENSE_KEY }}
+          tags: |
+            cratecache.azurecr.io/new-black/eva-whoami:latest
+            cratecache.azurecr.io/new-black/eva-whoami:${{ env.build_number }}
+          builder: ${{ steps.buildx.outputs.name }}

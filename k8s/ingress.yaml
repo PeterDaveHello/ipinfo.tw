@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/acme-challenge-type: dns01
+    cert-manager.io/cluster-issuer: letsencrypt-prod-dns
+    kubernetes.io/ingress.class: nginx
+  generation: 2
+  labels:
+    name: eva-whoami
+  name: eva-whoami
+  namespace: platform-tools
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: whoami.on-eva.io
+    http:
+      paths:
+      - backend:
+          service:
+            name: eva-whoami
+            port:
+              number: 8080
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - whoami.on-eva.io
+    secretName: eva-whoami-tls
