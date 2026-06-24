@@ -2,13 +2,13 @@
 
 ## Project Overview
 
-ipinfo.tw is a self-hosted IP information service that surfaces the caller's IP address, country code/name, ASN number/description, and user agent. The entire stack is nginx plus the GeoIP2 module: requests trigger lookups against MaxMind's GeoLite2 databases and responses are emitted as static text or JSON.
+ipinfo.tw is a self-hosted IP information service that surfaces the caller's IP address, country code/name, ASN number/description, and user agent. The entire stack is nginx plus the GeoIP2 module: requests trigger lookups against MaxMind's GeoLite2 databases and responses are emitted as static text or JSON, configured entirely via nginx directives with no application code layer.
 
 ## Project Structure & Module Organization
 
 Source assets live under the repository root. `Dockerfile` and `docker-compose.yml` produce the nginx-based image that serves all endpoints. Runtime configuration sits in `nginx/`: the top-level `nginx.conf` sets global directives, while `nginx/conf.d/*.conf` defines feature-specific locations such as `/json` and `/build_epoch`. Shell utilities and automation hooks belong in `hooks/`; `hooks/build` encapsulates the canonical image build. Keep project documentation (e.g. `README.md`) in the root to mirror existing layout.
 
-Key configuration files and their roles:
+Architecture is defined by these configuration files:
 
 - `nginx/conf.d/geoip2.conf` loads GeoLite2-Country and GeoLite2-ASN databases and defines commonly used variables (e.g. `$ip_country_code`, `$ip_country_name`, `$ip_asn`, `$ip_aso`); the file also carries build epoch values consumed by `/build_epoch`
 - `nginx/conf.d/realip.conf` trusts `X-Real-IP` headers from RFC1918 private networks so reverse proxies can pass client addresses
@@ -53,7 +53,7 @@ Keep `MAXMIND_LICENSE_KEY` out of commits and PR text; rely on environment varia
 
 ## Key Implementation Notes
 
-Every endpoint is an nginx location block that formats data supplied by the GeoIP2 variables and returns static text or JSON via the `return` directive. The Dockerfile downloads and validates the GeoLite2 databases during the build stage using `MAXMIND_LICENSE_KEY`, so rebuild the image after updating those databases or editing `nginx/conf.d/*.conf`. For DigitalOcean App Platform, use the `DigitalOceanAppPlatform` branch to rely on the `DO-Connecting-IP` header.
+Every endpoint is an nginx location block that formats data supplied by the GeoIP2 variables and returns static text or JSON via the `return` directive. The Dockerfile downloads and validates the GeoLite2 databases during the build stage using `MAXMIND_LICENSE_KEY`; GeoLite2 databases are fetched during the `docker build` prepare stage, so rebuilding the image is required after updating them or editing `nginx/conf.d/*.conf`. For DigitalOcean App Platform, use the `DigitalOceanAppPlatform` branch to rely on the `DO-Connecting-IP` header.
 
 ## Adding New Endpoints
 
