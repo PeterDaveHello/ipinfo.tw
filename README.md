@@ -46,7 +46,7 @@ Run the server daemon via docker:
 docker run -d --name ipinfo.tw -p 80:8080 peterdavehello/ipinfo.tw:latest
 ```
 
-If you want to put this container behind reverse proxy, set up an `X-Real-IP` header and pass the it to the container, so that it can use the header as the IP of the client.
+If you want to put this container behind reverse proxy, set up an `X-Forwarded-For` header and pass it to the container, so that it can use the header as the IP of the client.
 
 ### Client side
 
@@ -60,7 +60,7 @@ Without any specified URI, the server will return IP address, country, AS, and u
 If you prefer to receive a machine-readable result, use path `/json` (without trailing slash), e.g. `https://ipinfo.tw/json`, the result will look like:
 
 ```json
-{"ip":"3.115.123.234","country_code":"JP","country_name":"Japan","asn":"16509","as_desc":"Amazon.com, Inc.","user_agent":"curl/7.58.0"}
+{"ip":"3.115.123.234","country":"JP / Japan","country_code":"JP","country_name":"Japan","as":"AS16509 / Amazon.com, Inc.","asn":"16509","as_desc":"Amazon.com, Inc.","user_agent":"curl/7.58.0"}
 ```
 
 #### Endpoints
@@ -75,6 +75,8 @@ You can also specify the following URI to retrieve certain info:
 - `asn`: AS number
 - `as_desc`: AS description
 - `user_agent`: User agent string
+- `headers`: All request headers as JSON
+- `status`: Health check (`ok`, access log disabled)
 
 Examples:
 
@@ -111,6 +113,12 @@ Google LLC
 
 $ wget -qO- https://ipinfo.tw/user_agent
 Wget
+
+$ curl https://ipinfo.tw/headers
+{"host":"ipinfo.tw","user-agent":"curl/8.7.1","accept":"*/*"}
+
+$ curl https://ipinfo.tw/status
+ok
 ```
 
 ##### Database build time endpoint
@@ -158,6 +166,7 @@ This project uses works from projects below, and fully appreciates contributors 
 - [Alpine Linux][5]
 - [nginx][6]
 - [nginx GeoIP2 module][7]
+- [njs (nginx JavaScript module)][9]
 - [GeoLite2][4] (by [MaxMind][3])
 - [Docker][8]
 
@@ -181,3 +190,4 @@ This project is released under the GPL-3.0 license.
 [6]:https://nginx.org/
 [7]:https://github.com/leev/ngx_http_geoip2_module
 [8]:https://www.docker.com/
+[9]:https://nginx.org/en/docs/njs/
